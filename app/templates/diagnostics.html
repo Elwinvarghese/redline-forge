@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<p class="eyebrow">WORKSHOP TOOLS</p>
+<h1>Network diagnostics</h1>
+<p class="lede">Check whether a host is reachable from the ForgeTrack server.</p>
+
+<form action="/diagnostics/ping" method="get">
+  <input name="host" value="{{ host or '127.0.0.1' }}" placeholder="Hostname or IP">
+  <button>Run check</button>
+</form>
+
+{% if output %}
+<section class="panel">
+  <pre style="white-space:pre-wrap">{{ output }}</pre>
+</section>
+{% endif %}
+{% endblock %}
